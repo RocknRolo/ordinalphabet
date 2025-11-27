@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ordinalphabet</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>ordinalphabet</small></header>
+    <br><br>
+
+    <div class="main">
+        <textarea id="question_left" class="question" maxlength="1"> </textarea>
+        <textarea id="question_right" class="question" maxlength="2"></textarea>
+        <div id="ordinal"></div>
+        <input type="radio" id="left_radio"  name="field_selector" checked>
+        <input type="radio" id="right_radio" name="field_selector">
+    </div>
+    
+    <br><br>
+
+    <div class="center">
+        <button onclick="checkAnswer()">Submit<br><small>(Enter)</small></button>
+    </div>
+    <br><br>
+
+    <div id="rw">
+        <div id="right_counter">
+            <div id="score_label">Right: </div><div id="right_text">0</div>
+        </div>
+        <div id="wrong_counter">
+            <div id="mistakes_label">Wrong: </div><div id="wrong_text">0</div>
+        </div>
+    </div>
+    <br>
+    <a href="https://rocknrolo.github.io/">RocknRolo</a>
+</body>
+</html>
