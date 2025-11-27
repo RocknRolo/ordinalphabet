@@ -59,13 +59,13 @@ function newQuestion() {
 
     currentAnswer = answerArray.pop();
     
-    if (currentAnswer == 1) {
+    if (currentAnswer % 20 == 1) {
         ordinal.textContent = "st";
     } else 
-    if (currentAnswer == 2) {
+    if (currentAnswer % 20 == 2) {
         ordinal.textContent = "nd";
     } else 
-    if (currentAnswer == 3) {
+    if (currentAnswer % 20 == 3) {
         ordinal.textContent = "rd";
     } else {
         ordinal.textContent = "th";
