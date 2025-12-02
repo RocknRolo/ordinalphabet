@@ -13,7 +13,7 @@ header {
 
 .main {
     display: grid;
-    grid-template-columns: 1fr 40px 20px 40px 1fr;
+    grid-template-columns: 1fr 40px 30px 40px 1fr;
     grid-template-rows: 1fr 0.3fr;
     color: grey;
 }
@@ -23,7 +23,6 @@ header {
     grid-row: 1;
     font-family: monospace;
     font-size: 2rem;
-    text-transform: uppercase;
 }
 
 #question_right {
@@ -31,12 +30,25 @@ header {
     grid-row: 1;
     font-family: monospace;
     font-size: 2rem;
+    text-transform: uppercase;
+}
+
+#between {
+    grid-column: 3;
+    grid-row: 1;
 }
 
 #ordinal {
-    grid-column: 5;
-    grid-row: 1;
     font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+    height: 14px;
+}
+
+#equals_sign {
+    font-size: 1.4rem;
+    text-align: center;
+    overflow: auto;
 }
 
 #left_radio {

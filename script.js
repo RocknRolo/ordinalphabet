@@ -17,14 +17,14 @@ let wrongCounter = 0;
 
 let answerArray = [];
 let currentAnswer;
-let leftFieldActive = true;
+let leftFieldActive = false;
 
 question_left.onkeypress = function(e) {
     if (e.which == 13) {
         checkAnswer();
     }
     let chr = String.fromCharCode(e.which);
-    return /^[A-Za-z]$/.test(chr);
+    return ("0123456789".indexOf(chr) >= 0);
 }
 
 question_right.onkeypress = function(e) {
@@ -32,7 +32,7 @@ question_right.onkeypress = function(e) {
         checkAnswer();
     }
     let chr = String.fromCharCode(e.which);
-    return ("0123456789".indexOf(chr) >= 0);
+    return /^[A-Za-z]$/.test(chr);
 }
 
 left_radio.onclick = function () {
@@ -78,7 +78,7 @@ function newQuestion() {
         question_left.setAttribute("style", "background: " + ACTIVE_BG);
         question_left.focus();
         
-        question_right.value = currentAnswer;
+        question_right.value = decToChar(currentAnswer);
     } else {
         question_left.disabled = true;
         question_left.setAttribute("style", "background: " + INACTIVE_BG);
@@ -86,13 +86,13 @@ function newQuestion() {
         question_right.setAttribute("style", "background: " + ACTIVE_BG);
         question_right.focus();
 
-        question_left.value = decToChar(currentAnswer);
+        question_left.value = currentAnswer;
     }
 }
 
 function checkAnswer() {
-    if (question_left.value.toUpperCase() == decToChar(currentAnswer) &&
-        question_right.value == currentAnswer) {
+    if (question_right.value.toUpperCase() == decToChar(currentAnswer) &&
+        question_left.value == currentAnswer) {
         rightCounter++;
         right_text.textContent = rightCounter;
         newQuestion();
@@ -110,8 +110,7 @@ function resetFields() {
 }
 
 function numRange(start, end) {
-  return Array.apply(0, Array(end - start + 1))
-    .map((o, index) => index + start);
+  return Array.apply(0, Array(end - start + 1)).map((o, index) => index + start);
 }
 
 function populateAnswers() {
